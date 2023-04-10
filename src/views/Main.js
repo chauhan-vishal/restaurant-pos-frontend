@@ -1,8 +1,25 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import Card from './components/Card'
+import env from 'react-dotenv'
 
 export default function Main() {
+    const [items, setItems] = useState([])
+    
+    useEffect(() => {
+        fetch(process.env.REACT_APP_API_URL + "api/item", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*",
+                "type": "front"
+            }
+        })
+            .then(res => res.json())
+            .then(res => {
+                setItems(res.document)
+            })
+    }, [])
 
     return (
         <div className="col-md-9 main-content">
@@ -28,14 +45,11 @@ export default function Main() {
             </div>
             <div className="row items-container">
                 <div className="col-md-12">
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
+                    {
+                        items && items.map((item, index) => {
+                            return <Card key={index} item={item} />
+                        })
+                    }
                 </div>
             </div>
         </div>
