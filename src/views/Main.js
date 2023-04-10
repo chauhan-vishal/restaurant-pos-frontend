@@ -3,6 +3,7 @@ import React from 'react'
 import Card from './components/Card'
 
 export default function Main() {
+
     return (
         <div className="col-md-9 main-content">
             <div className="row header">
