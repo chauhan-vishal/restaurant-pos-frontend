@@ -3,8 +3,9 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: "Nunito", sans-serif;
+    overflow-x: hidden;
     box-sizing: border-box;
+    font-family: "Nunito", sans-serif;
 }
 
 ul {
@@ -15,14 +16,13 @@ ul {
 
 .container-fluid {
     margin: 0;
-    padding: 0 0 0 90px !important;
     width: 100%;
     display: block;
     position: relative;
 }
 
 .main-content {
-    padding: 30px 30px 20px 30px !important;
+    padding: 30px 30px 30px 110px;
     box-sizing: border-box;
     background-color: #eaeaea;
 }
@@ -228,4 +228,42 @@ ul {
     bottom: 5px;
     color: orangered;
     position: absolute;
+}
+
+.order-container>.order-items-container>.order-item>.side>.item-count {
+    bottom: 8px;
+    right: 20px;
+    display: block;
+    position: absolute;
+}
+
+.order-container>.order-items-container>.order-item>.side>.item-count>button {
+    width: 22px;
+    border: none;
+    height: 22px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 800;
+    border-radius: 5px;
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    outline: none !important;
+    background-color: darkorange;
+}
+
+.order-container>.order-items-container>.order-item>.side>.item-count>button:is(:hover, :focus) {
+    box-shadow: 0 0 5px #999;
+}
+
+.order-container>.order-items-container>.order-item>.side>.item-count>button:disabled {
+    background-color: rgba(255, 140, 0, 0.6);
+}
+
+.order-container>.order-items-container>.order-item>.side>.item-count>span {
+    color: gray;
+    width: 30px;
+    text-align: center;
+    display: inline-block;
 }
