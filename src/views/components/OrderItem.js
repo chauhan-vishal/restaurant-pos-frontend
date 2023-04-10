@@ -11,16 +11,16 @@ export default function OrderItem() {
         setCount(count + 1);
         setPrice((staticPrice) * (count + 1));
 
-        (count > 0) ? document.querySelector("#decrease").disabled = false : '';
-        (count + 1 >= 8) ? document.querySelector("#increase").disabled = true : '';
+        if (count > 0) { document.querySelector("#decrease").disabled = false }
+        if (count + 1 >= 8) { document.querySelector("#increase").disabled = true }
     }
 
     const decrease = () => {
         setCount(count - 1);
         setPrice((staticPrice) * (count - 1));
 
-        (count == 0) ? document.querySelector("#decrease").disabled = true : '';
-        (count < 8) ? document.querySelector("#increase").disabled = false : '';
+        if (count == 0) { document.querySelector("#decrease").disabled = true }
+        if (count < 8) { document.querySelector("#increase").disabled = false }
     }
 
     return (
