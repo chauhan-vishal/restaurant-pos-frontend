@@ -1,0 +1,46 @@
+.sidebar {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 80px;
+    position: fixed;
+    z-index: 2;
+    background-color: white;
+    box-shadow: 0 3px 7px #888;
+}
+
+.logo{
+    padding: 10px;
+    display: block;
+}
+
+.icons {
+    width: 100%;
+    margin-top: 30px;
+    position: relative;
+}
+
+.icons>ul>li {
+    margin: 10px 0;
+    display: block;
+    cursor: pointer;
+    padding: 10px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.icons>ul>li:is(.active),
+.icons>ul>li:hover {
+    border-right: 3px solid orange; 
+    background-color: rgba(0, 0, 0,0.1);
+}
+
+.icons>ul>li:is(.active)>img,
+.icons>ul>li:hover > img {
+    filter: invert(65%) sepia(91%) saturate(1908%) hue-rotate(359deg) brightness(100%) contrast(105%);
+}
+
+.icons>ul>li>img {
+    width: 20px;
+    position: relative;
+}
