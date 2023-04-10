@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-export default function OrderItem() {
+export default function OrderItem({ item }) {
     const staticPrice = 10.00
 
     const [count, setCount] = useState(1)

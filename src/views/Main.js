@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 
 import Card from './components/Card'
-import env from 'react-dotenv'
 
 export default function Main() {
+
     const [items, setItems] = useState([])
-    
+
     useEffect(() => {
         fetch(process.env.REACT_APP_API_URL + "api/item", {
             method: "GET",
