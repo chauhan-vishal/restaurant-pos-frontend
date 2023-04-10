@@ -1,3 +1,4 @@
+import env from "react-dotenv";
 import Structure from "./views/Structure"
 
 function App() {
