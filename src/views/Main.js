@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 
 import Card from './components/Card'
 
-export default function Main() {
+export default function Main({ setOrderItems }) {
 
     const [items, setItems] = useState([])
 
@@ -47,7 +47,7 @@ export default function Main() {
                 <div className="col-md-12">
                     {
                         items && items.map((item, index) => {
-                            return <Card key={index} item={item} />
+                            return <Card key={index} item={item} setOrderItems={setOrderItems} />
                         })
                     }
                 </div>

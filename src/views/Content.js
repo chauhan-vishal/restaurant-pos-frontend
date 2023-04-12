@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import Main from './Main'
 import Order from './Order'
-import OrderContext from './OrderContext'
 
 export default function Content() {
     const [orderItems, setOrderItems] = useState([])
 
+    // console.log("OI + " + JSON.stringify(orderItems) + "  |")
+
     return (
-        <OrderContext.Provider value={{ orderItems, setOrderItems }}>
-            <div className="row">
-                <Main />
-                <Order />
-            </div>
-        </OrderContext.Provider>
+        <div className="row">
+            <Main setOrderItems={setOrderItems} />
+            <Order orderItems={orderItems} />
+        </div>
     )
 }

@@ -1,19 +1,23 @@
 import React, { useContext } from 'react'
-import OrderContext from '../OrderContext'
 
-export default function Card({ item }) {
-    const { orderItems, setOrderItems } = useContext(OrderContext);
+export default function Card({ item, setOrderItems }) {
+
+    function updateOrderItems(item) {
+        setOrderItems(prev => {
+            if(prev.length > 0 && prev.includes(item)){
+                alert("Item already is in cart !")
+                return prev
+            }
+            return [...prev, item]
+        })
+    }
 
     return (
         <div className="c-card" key={item._id}>
             <div className="top">
                 <img src={item.img} alt="" />
                 <div className="cart-icon" onClick={() => {
-                    setOrderItems(oldOrderItems => {
-                        oldOrderItems.push(item);
-                        console.log(oldOrderItems)
-                        return oldOrderItems;
-                    });
+                    updateOrderItems(item)
                 }}>
                     <img src="/resources/icons/cart.svg" alt="" />
                 </div>

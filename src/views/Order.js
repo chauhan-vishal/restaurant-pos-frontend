@@ -1,12 +1,8 @@
-import React, { useContext, useEffect } from 'react'
+import React from 'react'
 import OrderItem from './components/OrderItem'
-import OrderContext from './OrderContext';
 
-export default function Order() {
-    const { orderItems, setOrderItems } = useContext(OrderContext);
-
-    console.log("OI : " + orderItems)
-
+export default function Order({ orderItems }) {
+        
     return (
         <div className="col-md-3 order-container">
             <div className="head">
@@ -14,8 +10,8 @@ export default function Order() {
             </div>
             <div className="order-items-container">
                 {
-                    orderItems && orderItems.map(item => {
-                        return <OrderItem item={item} />
+                    orderItems && orderItems.map((item, index) => {
+                        return <OrderItem key={index} item={item} />
                     })
                 }
             </div>

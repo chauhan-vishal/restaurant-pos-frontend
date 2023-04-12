@@ -197,6 +197,8 @@ ul {
 .order-container>.order-items-container>.order-item {
     width: 100%;
     display: flex;
+    position: relative;
+    margin-bottom: 20px;
 }
 
 .order-container>.order-items-container>.order-item>.image {
