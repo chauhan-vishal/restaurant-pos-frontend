@@ -11,7 +11,7 @@ export default function Content() {
     return (
         <div className="row">
             <Main setOrderItems={setOrderItems} />
-            <Order orderItems={orderItems} />
+            <Order orderItems={orderItems} setOrderItems={setOrderItems} />
         </div>
     )
 }

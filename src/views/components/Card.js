@@ -4,12 +4,17 @@ export default function Card({ item, setOrderItems }) {
 
     function updateOrderItems(item) {
         setOrderItems(prev => {
-            if(prev.length > 0 && prev.includes(item)){
+            if (prev.length > 0 && prev.includes(item)) {
                 alert("Item already is in cart !")
                 return prev
             }
             return [...prev, item]
         })
+
+        const subTotal = document.querySelector("#subTotal")
+        if (subTotal) {
+            subTotal.innerHTML = parseInt(subTotal.innerHTML) + item.price
+        }
     }
 
     return (

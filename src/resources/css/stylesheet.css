@@ -14,6 +14,23 @@ ul {
     list-style: none;
 }
 
+.text-right {
+    text-align: right;
+}
+
+.text-gray {
+    color: gray;
+}
+
+.text-bold {
+    font-weight: 800;
+}
+
+.btn {
+    width: 100%;
+    position: relative;
+}
+
 .container-fluid {
     margin: 0;
     width: 100%;
@@ -24,7 +41,7 @@ ul {
 .main-content {
     padding: 30px 30px 30px 110px;
     box-sizing: border-box;
-    background-color: #eaeaea;
+    background-color: #e6e6e6;
 }
 
 .header {
@@ -180,7 +197,11 @@ ul {
 }
 
 .order-container {
+    right: 0;
+    display: flex;
     display: block;
+    position: fixed;
+    flex-direction: column;
     padding: 30px 15px !important;
 }
 
@@ -190,8 +211,35 @@ ul {
 
 .order-container>.order-items-container {
     width: 100%;
+    height: 400px;
     display: block;
+    transition: 0.5s;
+    min-height: 400px;
+    overflow-y: scroll;
     position: relative;
+    margin-bottom: 30px;
+}
+
+.order-container>.order-items-container:hover::-webkit-scrollbar-thumb {
+    background-color: darkorange;
+    transition: 0.5s;
+}
+
+.order-container>.order-items-container::-webkit-scrollbar {
+    width: 5px;
+}
+
+.order-container>.order-items-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.order-container>.order-items-container::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: gray;
+}
+
+.order-container>.order-items-container::-webkit-scrollbar-thumb:hover {
+    background: darkorange;
 }
 
 .order-container>.order-items-container>.order-item {
@@ -199,6 +247,9 @@ ul {
     display: flex;
     position: relative;
     margin-bottom: 20px;
+}
+.order-container>.order-items-container>.order-item:last-child {
+    margin-bottom: 0;
 }
 
 .order-container>.order-items-container>.order-item>.image {
@@ -268,4 +319,60 @@ ul {
     width: 30px;
     text-align: center;
     display: inline-block;
+}
+
+.order-container>.order-bottom>.amount-container {
+    bottom: 0;
+    width: 100%;
+    padding: 12px;
+    position: relative;
+    border-radius: 10px;
+    margin-bottom: 35px;
+    background-color: #e6e6e6;
+}
+
+.order-container>.order-bottom>.amount-container>.details {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 2px gray dashed;
+}
+
+.order-container>.order-bottom>.btnPayment {
+    color: #fff;
+    padding-top: 8px;
+    font-size: 18px;
+    text-align: left;
+    transition: 0.5s;
+    font-weight: 700;
+    padding-left: 85px;
+    padding-bottom: 8px;
+    border-radius: 10px;
+    border: 2px solid darkorange;
+    background-color: darkorange;
+}
+
+.order-container>.order-bottom>.btnPayment:hover {
+    color: darkorange;
+    padding-left: 65px;
+    background-color: transparent;
+    padding-left: -50px !important;
+    border: 2px solid darkorange;
+    box-shadow: 0px 0px 12px #999;
+}
+
+.order-container>.order-bottom>.btnPayment>img {
+    top: 50%;
+    width: 15px;
+    right: 30px;
+    opacity: 0;
+    transition: 0.5s;
+    filter: invert(1);
+    position: absolute;
+    transform: translateY(-50%);
+}
+
+.order-container>.order-bottom>.btnPayment:hover>img {
+    right: 50px;
+    opacity: 1;
+    filter: invert(69%) sepia(43%) saturate(5419%) hue-rotate(358deg) brightness(101%) contrast(107%);
 }
