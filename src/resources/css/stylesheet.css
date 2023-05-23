@@ -39,6 +39,8 @@ ul {
 }
 
 .main-content {
+    min-height: 100vh;
+    transition: 0.5s;
     padding: 30px 30px 30px 110px;
     box-sizing: border-box;
     background-color: #e6e6e6;
@@ -110,19 +112,29 @@ ul {
 }
 
 .items-container>.col-md-12 {
+    padding: 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+}
+
+.card-container {
+    width: 100%;
+    display: flex;
+    padding: 0 15px;
+    cursor: pointer;
+    align-items: center;
+    max-width: 25%;
 }
 
 .c-card {
-    width: 280px;
+    width: 100%;
+    display: flex;
     padding: 10px;
     display: block;
     cursor: pointer;
-    margin-bottom: 30px;
     position: relative;
     border-radius: 7px;
+    margin-bottom: 30px;
     background-color: #fff;
 }
 
@@ -197,11 +209,14 @@ ul {
 }
 
 .order-container {
-    right: 0;
+    height: 100%;
+    right: -100%;
     display: flex;
     display: block;
     position: fixed;
+    transition: 0.5s;
     flex-direction: column;
+    background-color: #fff;
     padding: 30px 15px !important;
 }
 
@@ -248,6 +263,7 @@ ul {
     position: relative;
     margin-bottom: 20px;
 }
+
 .order-container>.order-items-container>.order-item:last-child {
     margin-bottom: 0;
 }
@@ -344,8 +360,8 @@ ul {
     text-align: left;
     transition: 0.5s;
     font-weight: 700;
-    padding-left: 85px;
     padding-bottom: 8px;
+    text-align: center;
     border-radius: 10px;
     border: 2px solid darkorange;
     background-color: darkorange;
@@ -353,26 +369,58 @@ ul {
 
 .order-container>.order-bottom>.btnPayment:hover {
     color: darkorange;
-    padding-left: 65px;
     background-color: transparent;
     padding-left: -50px !important;
     border: 2px solid darkorange;
     box-shadow: 0px 0px 12px #999;
 }
 
-.order-container>.order-bottom>.btnPayment>img {
-    top: 50%;
-    width: 15px;
-    right: 30px;
-    opacity: 0;
-    transition: 0.5s;
-    filter: invert(1);
-    position: absolute;
-    transform: translateY(-50%);
+.category-container {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    padding: 0 15px;
+    cursor: pointer;
+    align-items: center;
+    max-width: 33.33337%;
 }
 
-.order-container>.order-bottom>.btnPayment:hover>img {
-    right: 50px;
-    opacity: 1;
-    filter: invert(69%) sepia(43%) saturate(5419%) hue-rotate(358deg) brightness(101%) contrast(107%);
+.category-container a {
+    text-decoration: none;
+}
+
+.category-container .card-div {
+    width: 100%;
+    display: flex;
+    padding: 7px 8px;
+    border-radius: 7px;
+    align-items: center;
+    background-color: #fff;
+}
+
+.category-container .card-div img {
+    width: 150px;
+    height: 150px;
+    margin: 10px 0;
+    object-fit: cover;
+    border-radius: 50%;
+    object-position: center;
+    align-content: center;
+}
+
+.category-container .card-div .card-body {
+    padding: 10px;
+    overflow: hidden;
+}
+
+.category-container .card-div .card-body .category-head {
+    color: #333;
+    font-weight: 700;
+}
+
+.category-container .card-div .card-body .category-desc {
+    margin: 0;
+    height: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

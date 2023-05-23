@@ -1,13 +1,27 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
 
 import Card from './components/Card'
+import TopHeader from './components/TopHeader'
 
-export default function Main({ setOrderItems }) {
-
+export default function Main({ search, setSearch, orderItems, updateOrderItems }) {
     const [items, setItems] = useState([])
+    const [queryParams] = useSearchParams()
+
+    const customerName = localStorage.getItem("customerName")
+
+    const categoryName = queryParams.get("category")
+
+    let API_PATH = "api/item?"
+    if (categoryName) {
+        API_PATH += "categoryName=" + categoryName + "&"
+    }
+    if (search) {
+        API_PATH += "itemName=" + search
+    }
 
     useEffect(() => {
-        fetch(process.env.REACT_APP_API_URL + "api/item", {
+        fetch(process.env.REACT_APP_API_URL + API_PATH, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -19,35 +33,21 @@ export default function Main({ setOrderItems }) {
             .then(res => {
                 setItems(res.document)
             })
-    }, [])
+    }, [API_PATH])
+
+    const addOrderItem = (item) => {
+        updateOrderItems(item)
+    }
 
     return (
-        <div className="col-md-9 main-content">
-            <div className="row header">
-                <div className="left">
-                    <h3>Welcome, User</h3>
-                    <span>Discover whatever you need easily</span>
-                </div>
-                <div className="right">
-                    <div className="searchbox">
-                        <img src='/resources/icons/search.svg' alt='searcg' />
-                        <input type="text" placeholder="Search Product..." />
-                    </div>
-                    <div className="filter">
-                        <img src="/resources/icons/filter.svg" alt="" />
-                    </div>
-                </div>
-            </div>
-            <div className="row categories">
-                <div className="col-md-12">
-                    &nbsp;
-                </div>
-            </div>
+        <div className="col-md-12 main-content" style={(orderItems.length > 0) ? { paddingRight: "415px" } : {}}>
+            <TopHeader heading={"Welcome, " + ((customerName) ? customerName : "")} setSearch={setSearch} />
+
             <div className="row items-container">
                 <div className="col-md-12">
                     {
                         items && items.map((item, index) => {
-                            return <Card key={index} item={item} setOrderItems={setOrderItems} />
+                            return <Card key={index} item={item} addOrderItem={() => { return addOrderItem(item) }} />
                         })
                     }
                 </div>

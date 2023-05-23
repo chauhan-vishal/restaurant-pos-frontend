@@ -9,7 +9,7 @@
     box-shadow: 0 3px 7px #888;
 }
 
-.logo{
+.logo {
     padding: 10px;
     display: block;
 }
@@ -22,25 +22,43 @@
 
 .icons>ul>li {
     margin: 10px 0;
+    padding: 10px 0;
     display: block;
     cursor: pointer;
-    padding: 10px;
     text-align: center;
     box-sizing: border-box;
 }
 
 .icons>ul>li:is(.active),
 .icons>ul>li:hover {
-    border-right: 3px solid orange; 
-    background-color: rgba(0, 0, 0,0.1);
+    border-right: 3px solid orange;
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
-.icons>ul>li:is(.active)>img,
-.icons>ul>li:hover > img {
+.icons>ul>li>a {
+    padding: 10px 30px;
+}
+
+.icons>ul>li:is(.active)>a>img,
+.icons>ul>li:hover>a>img {
     filter: invert(65%) sepia(91%) saturate(1908%) hue-rotate(359deg) brightness(100%) contrast(105%);
 }
 
-.icons>ul>li>img {
+.icons>ul>li>a>img {
     width: 20px;
+    position: relative;
+}
+
+.login-block{
+    bottom: 0;
+    width: 100%;
+    display: block;
+    text-align: center;
+    align-items: center;
+    position: absolute;
+}
+
+.login-block img{
+    width: 30px;
     position: relative;
 }
